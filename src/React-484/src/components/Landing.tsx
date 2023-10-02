@@ -1,7 +1,7 @@
 import { type SetStateAction, useEffect, useState } from "react";
 import type { Chat, ChatMessage } from "../utils/types";
 
-function Landing({ email }: { email: string }) {
+function Landing() {
   const [value, setValue] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [previousChats, setPreviousChats] = useState<Array<ChatMessage>>([]);

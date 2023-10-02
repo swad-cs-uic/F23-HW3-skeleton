@@ -7,10 +7,10 @@ interface AppProps {
   email: string;
 }
 
-const App: React.FC<AppProps> = ({ email }) => {
+const App: React.FC<AppProps> = () => {
   return (
     <>
-      <Landing email={email} />
+      <Landing />
     </>
   );
 };

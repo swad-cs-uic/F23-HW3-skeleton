@@ -67,7 +67,7 @@ beforeAll(async () => {
     browser = await chromium.launch();
     page = await browser.newPage();
     const emulatorHost = "http://127.0.0.1:8080";
-    const projectId = "serverless-484";
+    const projectId = process.env.FIREBASE_PROJECT_ID;
     const deleteCollectionUrl = `${emulatorHost}/emulator/v1/projects/${projectId}/databases/(default)/documents/chatHistory/testinguser@test.com`;
     const deleteCollectionUrl2 = `${emulatorHost}/emulator/v1/projects/${projectId}/databases/(default)/documents/chatHistory/testinguser2@test.com`;
 
@@ -100,7 +100,7 @@ describe("Check the functionality of Serverless GPT-484", () => {
     await page.waitForSelector(".history");
 
     const listItems = await page.$$eval(".history li", (elements) =>
-      elements.map((item) => item.textContent.trim()),
+      elements.map((item) => item.textContent.trim())
     );
     const foundItem = listItems.includes("New Prompt 1");
     expect(foundItem).toBe(true);
@@ -109,7 +109,7 @@ describe("Check the functionality of Serverless GPT-484", () => {
   test("(3 pts) 2. Create a new prompt, and it should appear in the history. Creation of a new prompt under the same parent should not create a new entry in the history section.", async () => {
     await page.waitForSelector(".history");
     const listItems = await page.$$eval(".history li", (elements) =>
-      elements.map((item) => item.textContent.trim()),
+      elements.map((item) => item.textContent.trim())
     );
 
     console.log(listItems);
@@ -121,22 +121,22 @@ describe("Check the functionality of Serverless GPT-484", () => {
     await page.waitForTimeout(1500);
 
     const updatedListItems = await page.$$eval("#history-pane li", (elements) =>
-      elements.map((item) => item.textContent.trim()),
+      elements.map((item) => item.textContent.trim())
     );
     expect(updatedListItems.includes("New Prompt inside same parent")).toBe(
-      false,
+      false
     );
   });
 
   test("(3 pts) 3. Checking chats under the same parent in the viewing pane", async () => {
     await page.waitForSelector(".feed");
     const viewListItems = await page.$$eval(".feed li", (elements) =>
-      elements.map((item) => item.textContent.trim()),
+      elements.map((item) => item.textContent.trim())
     );
 
     expect(viewListItems.length).toBe(4);
     expect(viewListItems.includes("User:New Prompt inside same parent")).toBe(
-      true,
+      true
     );
   });
 
@@ -147,7 +147,7 @@ describe("Check the functionality of Serverless GPT-484", () => {
     await page.waitForTimeout(1500);
 
     const historyListItems = await page.$$eval(".history li", (elements) =>
-      elements.map((item) => item.textContent.trim()),
+      elements.map((item) => item.textContent.trim())
     );
     expect(historyListItems.includes("New Prompt 2")).toBe(true);
   });
@@ -158,7 +158,7 @@ describe("Check the functionality of Serverless GPT-484", () => {
     await page.waitForTimeout(1500);
     await page.waitForSelector(".history");
     const historyListItems = await page.$$eval(".history li", (elements) =>
-      elements.map((item) => item.textContent.trim()),
+      elements.map((item) => item.textContent.trim())
     );
 
     // console.log(historyListItems);
@@ -166,7 +166,7 @@ describe("Check the functionality of Serverless GPT-484", () => {
     expect(totalEntriesInHistory).equals(2);
 
     const newPrompt1Element = await page.$(
-      '.history li:has-text("New Prompt 1")',
+      '.history li:has-text("New Prompt 1")'
     );
     if (newPrompt1Element) {
       await newPrompt1Element.click();
@@ -176,12 +176,12 @@ describe("Check the functionality of Serverless GPT-484", () => {
 
     await page.waitForSelector(".feed");
     const viewListItems = await page.$$eval(".feed li", (elements) =>
-      elements.map((item) => item.textContent.trim()),
+      elements.map((item) => item.textContent.trim())
     );
 
     console.log(viewListItems);
     expect(viewListItems.includes("USER:New Prompt inside same parent")).toBe(
-      true,
+      true
     );
   });
 
@@ -196,7 +196,7 @@ describe("Check the functionality of Serverless GPT-484", () => {
 
     console.log("UID Generated");
     let listItems = await page.$$eval(".history li", (elements) =>
-      elements.map((item) => item.textContent.trim()),
+      elements.map((item) => item.textContent.trim())
     );
 
     expect(listItems.length).equal(0);
@@ -206,7 +206,7 @@ describe("Check the functionality of Serverless GPT-484", () => {
     await page.waitForSelector(".history");
 
     listItems = await page.$$eval(".history li", (elements) =>
-      elements.map((item) => item.textContent.trim()),
+      elements.map((item) => item.textContent.trim())
     );
 
     const foundItem = listItems.includes("New Prompt under Email 2");
@@ -214,7 +214,7 @@ describe("Check the functionality of Serverless GPT-484", () => {
 
     await page.waitForSelector(".feed");
     const viewListItems = await page.$$eval(".feed li", (elements) =>
-      elements.map((item) => item.textContent.trim()),
+      elements.map((item) => item.textContent.trim())
     );
 
     expect(viewListItems.length).toBe(2);
@@ -229,7 +229,7 @@ describe("Check the functionality of Serverless GPT-484", () => {
     await page.waitForSelector(".history");
 
     listItems = await page.$$eval(".history li", (elements) =>
-      elements.map((item) => item.textContent.trim()),
+      elements.map((item) => item.textContent.trim())
     );
 
     expect(listItems.length).equal(2);

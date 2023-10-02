@@ -69,7 +69,7 @@ if (Astro.cookies.has("session")) {
   import { app } from "../firebase/client";
 
   const auth = getAuth(app);
-  if (import.meta.env.PUBLIC_EMULATOR === 1) {
+  if (import.meta.env.PUBLIC_EMULATOR) {
     console.log("Client connecting to Emulator!");
     connectAuthEmulator(auth, "http://127.0.0.1:9099");
   }
