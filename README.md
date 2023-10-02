@@ -1,14 +1,4 @@
-**Quickstart**: To create a new repository under your own GitHub account, you can create a new
-**private** repository from [this
-template](https://github.com/swad-cs-uic/F23-HW2-Skeleton). Sharing your code,
-intentionally or unintentionally, is a violation of the academic integrity
-policy in this course.
-
 # Homework3 - Serverless GPT-484
-
-## Cloning your homework assignment
-
-[The Skeleton code link](https://github.com/swad-cs-uic/F23-HW2-Skeleton) will allow you to clone the assignment.
 
 ## Must-read
 
@@ -37,7 +27,7 @@ policy in this course.
 
 ## Skeleton code
 
-The skeleton code of the application is designed to foster your knowledge on using serverless services and reactivity. This assignment can be considered as Assignment 2 on steroids. It uses Astro which allows you use components from different JS frameworks. Also provides flexibility of play between CSR and SSR. Firebase is being used to provide a serverless datastore that your application interacts with. Furthermore, the assignment also has a set emulator that allows you to develop and test your application connected with Firebase locally [including the Auth and Firestore], instead of affecting your Live Firebase account. With the end of this assignment you should have a good knowledge of how to convert a static-project to a dynamic project leveraging using one of the most in-demand serverless service. A fully application is a multi-user application for GPT-484.
+The skeleton code of the application is designed to foster your knowledge on using serverless services and reactivity. This assignment can be considered as Assignment 2 on steroids. It uses [Astro](https://astro.build/) which allows you use components from different JS frameworks. Also provides flexibility of play between CSR and SSR. Firebase is being used to provide a serverless datastore that your application interacts with. Furthermore, the assignment also has a set emulator that allows you to develop and test your application connected with Firebase locally [including the Auth and Firestore], instead of affecting your Live Firebase account. With the end of this assignment you should have a good knowledge of how to convert a static-project to a dynamic project leveraging using one of the most in-demand serverless service. A fully application is a multi-user application for GPT-484.
 
 ## Navigating and starting project
 
@@ -62,9 +52,9 @@ Your code must function identically to the fully functional application.
 
 3. You also need to complete the registration service for your application.
 
-4. Once your APIs are set-up you then need to integrate the APIs in your landing component so that your data is now is persisted across sessions and not just limited to a state.
+4. Once your APIs are set-up you then need to integrate the APIs in your landing component so that your data is now persisted across sessions and not just limited to a state.
 
-5. This application will allow you to use concepts from HW1 and HW2 to your HW3 as well.
+5. This application will allow you to bring concepts from HW1 and HW2 to your HW3 as well.
 
 6. A NOT DEFINED TODO that you must figure out on your own is how to enable Email based data fetch and store in the Landing component i.e the dashboard should only display the chats of the logged in user. The application allows multiple users to have their data stored in Firestore.
 
